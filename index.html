@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(Business Name) | (Business Description)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <style>
+        /*
+        To use the 'Glamor' font, you need to include the font file(s)
+        using the @font-face rule. Replace 'path/to/your/font.woff2'
+        and 'path/to/your/font.woff' with the actual paths to your font files.
+        You may need multiple @font-face rules for different weights (e.g., Bold).
+        */
+        /*
+        @font-face {
+            font-family: 'Glamor';
+            src: url('path/to/your/glamor-regular.woff2') format('woff2'),
+                 url('path/to/your/glamor-regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap; /* Improve font loading experience */
+        }
+        @font-face {
+            font-family: 'Glamor';
+            src: url('path/to/your/glamor-bold.woff2') format('woff2'),
+                 url('path/to/your/glamor-bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap; /* Improve font loading experience */
+        }
+        */
+
+        /*
+        To use the 'Candy Script' font, you need to include the font file(s)
+        using the @font-face rule. Replace 'path/to/your/candy-script.woff2'
+        and 'path/to/your/candy-script.woff' with the actual paths to your font files.
+        */
+        /*
+        @font-face {
+            font-family: 'Candy Script';
+            src: url('path/to/your/candy-script-regular.woff2') format('woff2'),
+                 url('path/to/your/candy-script-regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap; /* Improve font loading experience */
+        }
+        */
+
+        /*
+        To use the 'Funkydory' font, you need to include the font file(s)
+        using the @font-face rule. Replace 'path/to/your/funkydory.woff2'
+        and 'path/to/your/funkydory.woff' with the actual paths to your font files.
+        */
+        /*
+        @font-face {
+            font-family: 'Funkydory';
+            src: url('path/to/your/funkydory-regular.woff2') format('woff2'),
+                 url('path/to/your/funkydory-regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap; /* Improve font loading experience */
+        }
+        */
+
+
+        /* Basic Reset and Box Sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Color Palette (Light Theme with Yellow, Orange, Light Purple) */
+        :root {
+            --primary-color: #C3A3E0; /* Refined Light Purple */
+            --secondary-color: #F08000; /* Updated to Tangerine */
+            --accent-color: #FFD700; /* Gold/Vibrant Yellow - Kept as is, primarily for accent */
+            --text-color: #000; /* Updated to Black for light backgrounds */
+            --main-bg-color: #FFEA00; /* Updated Background Color to Bright Yellow #FFEA00 */
+            --alt-section-bg-color: #E6E6FA; /* Light Purple (Lavender) for alternating sections */
+            --footer-bg-color: #FFDAB9; /* Muted Peach */
+            --white-bg: #FFFFFF; /* Pure White for elements like form/gallery items */
+            --hover-shadow-base: 51, 51, 51; /* RGB values for Dark Grey for shadows */
+            --overlay-bg: 51, 51, 51; /* RGB for overlay background (Dark Grey) */
+        }
+
+
+        /* Body and Base Styles */
+        body {
+            font-family: 'Roboto Slab', serif; /* Using Roboto Slab for body text */
+            line-height: 1.7;
+            color: var(--text-color); /* Uses black text */
+            background-color: var(--main-bg-color); /* Main background color */
+            scroll-behavior: smooth;
+        }
+
+        /* Container for centering content */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98); /* Almost opaque white header */
+            color: var(--text-color); /* Uses black text */
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 12px rgba(var(--hover-shadow-base), 0.1); /* Lighter shadow for light theme */
+            backdrop-filter: blur(5px);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Styling for the logo image */
+        header .logo img {
+            height: 60px; /* Adjust height as needed */
+            display: block;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        header nav ul li {
+            margin-left: 35px;
+            margin-bottom: 0.5rem;
+        }
+
+        header nav ul li a {
+            color: var(--text-color); /* Uses black text */
+            text-decoration: none;
+            font-weight: 500;
+            padding-bottom: 8px;
+            transition: color 0.3s ease;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        header nav ul li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--secondary-color); /* Tangerine underline */
+            transition: width 0.4s ease;
+        }
+
+        header nav ul li a:hover::after,
+        header nav ul li a:focus::after {
+            width: 100%;
+        }
+
+        header nav ul li a:hover {
+            color: var(--primary-color); /* Change link color to light purple on hover */
+        }
+
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Alternating Section Backgrounds */
+        #about, #custom-orders {
+             background-color: var(--alt-section-bg-color); /* Light Purple background */
+             color: var(--text-color); /* Uses black text */
+        }
+        /* Ensure other sections use the main background */
+        #hero, #gallery, #contact {
+             background-color: var(--main-bg-color); /* Main background color */
+        }
+
+        /* Adjust text color for elements within the light purple background sections */
+        #about h2, #custom-orders h2,
+        #about p, #custom-orders p,
+        #about a, #custom-orders a,
+        #about label, #custom-orders label,
+        #about input, #custom-orders input,
+        #about textarea, #custom-orders textarea,
+        #about .contact-info a, #custom-orders .contact-info a {
+             color: var(--text-color); /* Uses black text */
+        }
+        /* Specific adjustment for the button text color within light purple sections */
+        #about .btn, #custom-orders .btn {
+             color: var(--text-color); /* Uses black text for contrast */
+        }
+
+
+        section h2 {
+            font-family: 'Funkydory', 'Candy Script', 'Glamor', 'Montserrat', sans-serif; /* Using Funkydory first, then others */
+            font-weight: 700; /* Note: Script fonts might not have bold weights */
+            font-size: 3.2rem;
+            color: var(--primary-color); /* Light Purple Heading color */
+            margin-bottom: 60px;
+            position: relative;
+            padding-bottom: 15px;
+            text-transform: uppercase; /* Consider if this works well with script fonts */
+            letter-spacing: 3px;
+        }
+
+         section h2::after {
+             content: '';
+             position: absolute;
+             left: 50%; /* Center the underline */
+             bottom: 0;
+             transform: translateX(-50%); /* Pull back by half its width */
+             width: 80px; /* Fixed width underline */
+             height: 4px; /* Thicker underline */
+             background-color: var(--secondary-color); /* Tangerine underline */
+             border-radius: 2px; /* Rounded ends for underline */
+         }
+
+
+        /* Hero Section */
+        #hero {
+            /* Removed background image */
+            background-color: var(--main-bg-color); /* Use main background color */
+            color: var(--text-color); /* Uses black text */
+            padding: 200px 20px;
+            height: 95vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            text-shadow: none; /* Remove text shadow */
+            overflow: hidden;
+        }
+
+        /* Remove the pseudo-element overlay */
+        #hero::before {
+            content: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            animation: fadeInScale 1.5s ease-out forwards;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+
+        #hero h1 {
+            font-family: 'Funkydory', 'Candy Script', 'Glamor', 'Playfair Display', serif; /* Using Funkydory first, then others */
+            font-weight: 700; /* Note: Script fonts might not have bold weights */
+            font-size: 4.8rem;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            text-transform: uppercase; /* Consider if this works well with script fonts */
+            letter-spacing: 5px;
+            color: var(--text-color); /* Changed to black for readability on light background */
+        }
+
+        #hero p {
+            font-size: 1.6rem;
+            margin-bottom: 50px;
+            font-weight: 300;
+            color: var(--text-color); /* Uses black text */
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color); /* Tangerine button background color */
+            color: var(--text-color); /* Uses black text */
+            padding: 16px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.3rem;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 10px rgba(var(--hover-shadow-base), 0.1); /* Initial subtle shadow */
+        }
+
+        .btn:hover {
+            background: #d66f00; /* Slightly darker tangerine on hover */
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(var(--hover-shadow-base), 0.2); /* Stronger shadow on hover */
+        }
+
+        /* About Section */
+        #about {
+            /* Background set above */
+        }
+
+        .about-flex {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            text-align: left;
+            gap: 60px;
+        }
+
+        .about-flex .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-flex .about-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0 12px 30px rgba(var(--hover-shadow-base), 0.15); /* Lighter shadow */
+            transition: transform 0.5s ease;
+        }
+
+        .about-flex .about-image img:hover {
+            transform: scale(1.05) rotate(1deg);
+        }
+
+
+        .about-flex .about-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .about-flex .about-text p {
+            margin-bottom: 25px;
+            font-size: 1.15rem;
+        }
+
+        /* Gallery Section */
+        #gallery {
+            /* Background set above */
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 12px 30px rgba(var(--hover-shadow-base), 0.15); /* Lighter shadow */
+            cursor: pointer;
+            background-color: var(--white-bg); /* White background for items */
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .gallery-item:hover {
+             transform: translateY(-8px);
+             box-shadow: 0 15px 35px rgba(var(--hover-shadow-base), 0.25); /* Stronger shadow on hover */
+        }
+
+
+        .gallery-item img {
+            display: block;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            /* Using dark grey for overlay background with transparency */
+            background: rgba(var(--overlay-bg), 0.7);
+            color: #fff; /* White text on dark overlay for contrast */
+            padding: 20px;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            text-align: center;
+            font-weight: 600;
+            text-transform: uppercase; /* Consider if this works well with script fonts */
+            letter-spacing: 1px;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+
+        /* Custom Orders Section */
+        #custom-orders {
+            /* Background set above */
+             padding-bottom: 80px;
+        }
+
+        #custom-orders p {
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            font-size: 1.2rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            /* Background set above */
+        }
+
+        #contact form {
+            /* Removed the form */
+            display: none; /* Hide the form */
+        }
+
+        #contact .contact-info {
+            margin-top: 0; /* Adjust margin since form is removed */
+            font-size: 1.2rem;
+            text-align: center; /* Center the contact info */
+        }
+
+        #contact .contact-info p {
+            margin-bottom: 15px;
+        }
+
+        #contact .contact-info a {
+            color: var(--primary-color); /* Link color (Light Purple) */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        #contact .contact-info a:hover {
+            color: var(--secondary-color); /* Change link color to Tangerine on hover */
+            text-decoration: underline;
+        }
+
+
+        /* Footer */
+        footer {
+            background: var(--footer-bg-color); /* Muted Peach footer background */
+            color: var(--text-color); /* Uses black text */
+            text-align: center;
+            padding: 30px 0;
+            font-size: 1rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            #hero h1 {
+                font-size: 3.8rem;
+            }
+            #hero p {
+                font-size: 1.4rem;
+            }
+            section h2 {
+                font-size: 2.8rem;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            .gallery-item img {
+                height: 350px;
+            }
+             #contact .contact-info {
+                 text-align: center; /* Ensure contact info is centered on smaller screens */
+             }
+        }
+
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header nav ul {
+                justify-content: center;
+                padding-top: 15px;
+            }
+
+            header nav ul li {
+                margin: 0 12px;
+            }
+
+            #hero {
+                padding: 150px 20px;
+                height: auto;
+            }
+
+            #hero h1 {
+                font-size: 3rem;
+            }
+
+            #hero p {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            section h2 {
+                font-size: 2.3rem;
+                margin-bottom: 40px;
+            }
+
+            .about-flex {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .about-flex .about-image {
+                 margin-right: 0;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .gallery-item img {
+                height: 300px;
+            }
+
+            #contact form {
+                padding: 30px;
+            }
+             #contact .contact-info {
+                 text-align: center; /* Ensure contact info is centered on smaller screens */
+             }
+        }
+
+        @media (max-width: 480px) {
+             header nav ul {
+                 flex-direction: column;
+                 align-items: center;
+               }
+             header nav ul li {
+                 margin: 8px 0;
+               }
+
+             #hero h1 {
+                 font-size: 2.5rem;
+                 letter-spacing: 3px;
+               }
+
+             section h2 {
+                 font-size: 2rem;
+                 letter-spacing: 2px;
+               }
+
+             .gallery-grid {
+                 grid-template-columns: 1fr;
+               }
+
+             .gallery-item img {
+                 height: 250px;
+               }
+
+             .btn {
+                 padding: 12px 30px;
+                 font-size: 1.1rem;
+               }
+             #contact .contact-info {
+                 text-align: center; /* Ensure contact info is centered on smaller screens */
+             }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="" alt="BusinessLogo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#custom-orders">Custom Orders</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Wearable Art: The Soul of Handcrafted Textiles</h1>
+            <p>Discover unique traditional cloth paintings transformed into exquisite fashion and decor.</p>
+            <a href="#gallery" class="btn">Explore the Collection</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>Our Craft, Your Canvas</h2>
+            <div class="about-flex">
+                <div class="about-image">
+                    <img src="https://placehold.co/600x400/e0d9d2/333?text=About+KSL+Designs+Craft" alt="About KSL Designs Cloth Painting Process">
+                </div>
+                <div class="about-text">
+                    <p>
+                        (Business Name) is dedicated to the timeless art of traditional cloth painting. Each piece is a labor of love, meticulously hand-painted by skilled artisans onto fine fabrics, creating wearable art that carries stories and heritage.
+                    </p>
+                    <p>
+                        We specialize in bringing intricate patterns and vibrant colors to life on sarees, dupattas, stoles, and bespoke fabric panels. Our work bridges the gap between traditional techniques and contemporary fashion, offering truly unique creations.
+                    </p>
+                    <p>
+                        Learn more about the inspiration and the hands behind KSL Designs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="container">
+            <h2>Gallery of Creations</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://i.ytimg.com/vi/BwoY_DFduV8/oardefault.jpg?sqp=-oaymwEoCJUDENAFSFqQAgHyq4qpAxcIARUAAIhC2AEB4gEKCBgQAhgGOAFAAQ==&rs=AOn4CLDQbDjwIBXUfAmzBVe34WkP5BYCRg" alt="Hand Painted Animal Motifs (Elephants and Peacocks)" onerror="this.onerror=null; this.src='https://placehold.co/400x500/f0e9e4/333?text=Hand+Painted+Animal+Motifs';">
+                    <div class="overlay">Hand Painted Animal Motifs (Elephants and Peacocks)</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ytimg.com/vi/nTMozMGZk-I/oar2.jpg?sqp=-oaymwEoCJUDENAFSFqQAgHyq4qpAxcIARUAAIhC2AEB4gEKCBgQAhgGOAFAAQ==&rs=AOn4CLBtOcnMUj1vXNkpzX3QEP4CpD8wXg" alt="Hand Painted Floral Designs" onerror="this.onerror=null; this.src='https://placehold.co/400x500/f0e9e4/333?text=Hand+Painted+Floral+Designs';">
+                    <div class="overlay">Hand Painted Floral Designs</div>
+                </div>
+                <div class="gallery-item">
+                     <img src="https://i.ytimg.com/vi/llpWoFakQhM/oardefault.jpg?sqp=-oaymwEoCJUDENAFSFqQAgHyq4qpAxcIARUAAIhC2AEB4gEKCBgQAhgGOAFAAQ==&rs=AOn4CLD4-5Yfqn0yip21u6lIxTqVWkr7WA" alt="Custom Hand Painted Sarees" onerror="this.onerror=null; this.src='https://placehold.co/400x500/f0e9e4/333?text=Custom+Hand+Painted+Sarees';">
+                     <div class="overlay">Custom Hand Painted Sarees</div>
+                </div>
+                 <div class="gallery-item">
+                     <img src="https://i.ytimg.com/vi/x6BhDVyXqWw/oar2.jpg?sqp=-oaymwEoCJUDENAFSFqQAgHyq4qpAxcIARUAAIhC2AEB4gEKCBgQAhgGOAFAAQ==&rs=AOn4CLDT44WhYalAhXQJBpTZbGd-0AKBUw" alt="Custom Hand Painted Skirts (using pearl acrylic colors)" onerror="this.onerror=null; this.src='https://placehold.co/400x500/f0e9e4/333?text=Custom+Hand+Painted+Skirts';">
+                     <div class="overlay">Custom Hand Painted Skirts (using pearl acrylic colors)</div>
+                 </div>
+                 <div class="gallery-item">
+                     <img src="https://i.ytimg.com/vi/yZ1jDDvx5Es/oar2.jpg?sqp=-oaymwEoCJUDENAFSFqQAgHyq4qpAxcIARUAAIhC2AEB4gEKCBgQAhgGOAFAAQ==&rs=AOn4CLCH9PKo8--4SM6b5Yq7HTCvy5EDKA" alt="Hand Painted Kurthas (with leaf motifs)" onerror="this.onerror=null; this.src='https://placehold.co/400x500/f0e9e4/333?text=Hand+Painted+Kurthas';">
+                     <div class="overlay">Hand Painted Kurthas (with leaf motifs)</div>
+                 </div>
+                <div class="gallery-item">
+                    <img src="https://i.ytimg.com/vi/OLGfiBu4n0Q/oar2.jpg?sqp=-oaymwEoCJUDENAFSFqQAgHyq4qpAxcIARUAAIhC2AEB4gEKCBgQAhgGOAFAAQ==&rs=AOn4CLD9jnNI31RGC2Kzx4zquZ5PO72ZyQ" alt="Finished wearable art pieces" onerror="this.onerror=null; this.src='https://placehold.co/400x500/f0e9e4/333?text=Finished+Wearable+Art';">
+                    <div class="overlay">Finished wearable art pieces</div>
+                </div>
+             </div>
+        </div>
+    </section>
+
+    <section id="custom-orders">
+         <div class="container">
+             <h2>Your Vision, Hand-Painted</h2>
+             <p>
+                 Looking for a truly unique piece? KSL Designs offers custom cloth painting services to bring your specific ideas to life. From personalized garments for special occasions to unique fabric art for your projects, we collaborate with you to create something exceptional.
+             </p>
+             <p>
+                 Share your requirements, preferred colors, motifs, and fabric type, and let us craft a masterpiece just for you.
+             </p>
+             <a href="https://forms.gle/yTLisPKRWfkdkdBZ7" class="btn" target="_blank">Start Your Custom Project</a>
+         </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Connect With Us</h2>
+            <p>Have questions, want to discuss a custom order, or simply admire the art? Get in touch.</p>
+             <div class="contact-info">
+                 <p>Email: <a href="">(Email)</a></p>
+                 <p>Instagram: <a href="" target="_blank">(Link)</a></p>
+             </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 (Business Name). All rights reserved.</p>
+             </div>
+    </footer>
+
+    <script>
+        // Optional JavaScript for scroll-based fade-in effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the section is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
